@@ -22,7 +22,7 @@ export const AmbianceGallery: React.FC = () => {
       category: 'Ambiance',
       caption: 'Exposed white brick, warm industrial track lighting, handcrafted wooden tables, and playful art — ideal for study sessions and quiet contemplation.',
       format: 'Landscape',
-      gridClass: 'col-span-2 aspect-[16/10] sm:col-span-2 lg:col-span-2 sm:h-80'
+      gridClass: 'col-span-2 aspect-[16/10] lg:col-span-1 lg:aspect-auto lg:h-80 w-full'
     },
     {
       id: 'panini-dish',
@@ -31,7 +31,7 @@ export const AmbianceGallery: React.FC = () => {
       category: 'Signature Plate',
       caption: 'Freshly pressed savory panini served hot with seasoned dip and barista latte art on black presentation slate.',
       format: 'Portrait',
-      gridClass: 'col-span-1 aspect-[3/4] sm:col-span-1 lg:col-span-1 sm:h-80'
+      gridClass: 'col-span-1 aspect-[3/4] lg:col-span-1 lg:aspect-auto lg:h-80 w-full'
     },
     {
       id: 'frappe-sip',
@@ -40,7 +40,7 @@ export const AmbianceGallery: React.FC = () => {
       category: 'Iced Barista',
       caption: 'A refreshing iced specialty beverage topped with light green whipped cream, sitting beside your favorite novel.',
       format: 'Portrait',
-      gridClass: 'col-span-1 aspect-[3/4] sm:col-span-1 lg:col-span-1 sm:h-80'
+      gridClass: 'col-span-1 aspect-[3/4] lg:col-span-1 lg:aspect-auto lg:h-80 w-full'
     },
     {
       id: 'team-counter',
@@ -49,7 +49,7 @@ export const AmbianceGallery: React.FC = () => {
       category: 'Hospitality',
       caption: 'Our welcoming team behind the celebratory balloon counter with the espresso machine and dessert display.',
       format: 'Landscape',
-      gridClass: 'col-span-2 aspect-[16/9] sm:col-span-1 lg:col-span-1 sm:h-80'
+      gridClass: 'col-span-2 aspect-[16/9] lg:col-span-1 lg:aspect-auto lg:h-80 w-full'
     },
     {
       id: 'specialty-plate',
@@ -58,7 +58,7 @@ export const AmbianceGallery: React.FC = () => {
       category: 'Culinary Craft',
       caption: 'Carefully prepared dishes created by our culinary team to delight every palate in Khulna.',
       format: 'Square',
-      gridClass: 'col-span-1 aspect-square sm:col-span-1 lg:col-span-1 sm:h-80'
+      gridClass: 'col-span-1 aspect-square lg:col-span-1 lg:aspect-auto lg:h-80 w-full'
     },
     {
       id: 'sweet-treat',
@@ -67,7 +67,7 @@ export const AmbianceGallery: React.FC = () => {
       category: 'Sweets & Bakery',
       caption: 'Sweet treats and freshly finished bites that provide the perfect ending to your café visit.',
       format: 'Square',
-      gridClass: 'col-span-1 aspect-square sm:col-span-1 lg:col-span-1 sm:h-80'
+      gridClass: 'col-span-1 aspect-square lg:col-span-1 lg:aspect-auto lg:h-80 w-full'
     }
   ];
 
@@ -107,6 +107,12 @@ export const AmbianceGallery: React.FC = () => {
             >
               <img
                 src={item.src}
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.src.endsWith(item.src)) {
+                    target.src = item.src.startsWith('/') ? item.src.slice(1) : '/' + item.src;
+                  }
+                }}
                 alt={item.title}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
