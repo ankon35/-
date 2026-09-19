@@ -1,0 +1,6 @@
+{
+  "name": "Aurora Café & Bistro",
+  "description": "An aesthetic web experience for Aurora Café & Bistro in Khulna, featuring our artisanal menu, cozy ambiance, signature drinks, team story, and table reservations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
